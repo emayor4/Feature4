@@ -1,5 +1,5 @@
 import React from 'react'
-import Communities from './communitites/Communities'
+import Communities from './communities/Communities';
 import Friends from './friends/Friends'
 import Home from './home/Home'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -10,8 +10,8 @@ export default function Components() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<Friends />} />
-        <Route path="/about" element={<Communities />} />
+        <Route path="/friends" element={<Friends />} />
+        <Route path="/communities" element={<Communities />} />
       </Routes>
     </Router>
   )

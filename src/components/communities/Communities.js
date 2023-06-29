@@ -4,7 +4,7 @@ import CommunitiesList from './CommunitiesList';
 
 
 
-function Communities() {
+export default function Communities() {
   const [communities, setCommunities] = useState([]);
 
   useEffect(() => {
@@ -18,5 +18,3 @@ function Communities() {
     </div>
   );
 }
-
-export default Communities;
