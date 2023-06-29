@@ -7,6 +7,7 @@ const Communities = () => {
   const [communities, setCommunities] = useState([]);
 
   useEffect(() => {
+    // Fetch communities data and update state
     getCommunities().then((communities) => {
       setCommunities(communities);
     });
@@ -15,6 +16,7 @@ const Communities = () => {
   const history = useNavigate();
 
   const buttonHandler = () => {
+    // Navigate to home page
     history("/");
   };
 
