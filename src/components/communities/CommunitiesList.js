@@ -1,6 +1,6 @@
 import React from "react";
 
-const CommunitiesList = ({communities}) => {
+const CommunitiesList = ({ communities }) => {
   return (
     <div>
       <hr />
@@ -13,7 +13,7 @@ const CommunitiesList = ({communities}) => {
             {/* Using getter for lesson Object to display name */}
             {communities.map((comm) => (
               <li key={comm.id}>
-                {comm.id}
+                {comm.get("name")}
               </li>
             ))}
           </ul>
@@ -21,7 +21,6 @@ const CommunitiesList = ({communities}) => {
       </div>{" "}
     </div>
   );
-  
-}
+};
 
 export default CommunitiesList;
