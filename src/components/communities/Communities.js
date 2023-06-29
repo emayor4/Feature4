@@ -3,11 +3,13 @@ import { getCommunities } from "../../common/services/communitiesService";
 import CommunitiesList from "./CommunitiesList";
 import { useNavigate } from "react-router-dom";
 
-export default function Communities() {
+const Communities = () => {
   const [communities, setCommunities] = useState([]);
 
   useEffect(() => {
-    getCommunities().then((data) => setCommunities(data));
+    getCommunities().then((communities) => {
+      setCommunities(communities);
+    });
   }, []);
 
   const history = useNavigate();
@@ -29,3 +31,5 @@ export default function Communities() {
     </html>
   );
 }
+
+export default Communities;

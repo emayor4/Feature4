@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { getCommunities } from "../../common/services/communitiesService";
+import React from "react";
 
-const CommunitiesList = () => {
-  const [communities,setCommunities] = useState([]);
-  
-  useEffect(() => {
-    getCommunities().then((communities) => {
-      console.log(communities);
-      setCommunities(communities);
-    });
-  }, []);
-
+const CommunitiesList = ({communities}) => {
   return (
     <div>
-      {communities.length > 0 && (
+      <hr />
+      This is the main list stateless child component.
+      <div>
+        <p> Lesson by ID: </p>
+        {/* Check that the lesson object exists */}
+        {communities.length > 0 && (
           <ul>
+            {/* Using getter for lesson Object to display name */}
             {communities.map((comm) => (
-              <li key={comm.name}>
-                {comm.name}
+              <li key={comm.id}>
+                {comm.id}
               </li>
             ))}
           </ul>
         )}
+      </div>{" "}
     </div>
   );
   
