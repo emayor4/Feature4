@@ -6,6 +6,7 @@ const CommunitiesList = () => {
   
   useEffect(() => {
     getCommunities().then((communities) => {
+      console.log(communities);
       setCommunities(communities);
     });
   }, []);

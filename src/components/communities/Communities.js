@@ -21,9 +21,6 @@ export default function Communities() {
       <div>
         <h1>Neighboride</h1>
       </div>
-      <div>
-        <h1>Welcome to the Home </h1>
-      </div>
       <button onClick={buttonHandler}>Home</button>
       <div>
         <h1>Communities List:</h1>
