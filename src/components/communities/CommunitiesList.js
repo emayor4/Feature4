@@ -3,6 +3,7 @@ import { getCommunities } from "../../common/services/communitiesService";
 
 const CommunitiesList = () => {
   const [communities,setCommunities] = useState([]);
+  
   useEffect(() => {
     getCommunities().then((communities) => {
       setCommunities(communities);
@@ -14,8 +15,8 @@ const CommunitiesList = () => {
       {communities.length > 0 && (
           <ul>
             {communities.map((comm) => (
-              <li key={comm.objectID}>
-                {comm.community}
+              <li key={comm.name}>
+                {comm.name}
               </li>
             ))}
           </ul>
@@ -24,7 +25,5 @@ const CommunitiesList = () => {
   );
   
 }
-
-
 
 export default CommunitiesList;
