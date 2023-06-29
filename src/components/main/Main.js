@@ -1,5 +1,7 @@
 import React from "react";
-import MainList from "./Mainlist";
+import MainList from './MainList';
+
+
 
 function Main() {
   return (

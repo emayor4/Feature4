@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getCommunities } from '../../common/services/communitiesService';
-import CommunitiesList from './CommunititesList';
+import CommunitiesList from './CommunitiesList';
+
+
 
 function Communities() {
   const [communities, setCommunities] = useState([]);

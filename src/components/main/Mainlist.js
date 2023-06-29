@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function MainList() {
- /* return (
-   <div>
+  return (
+    <div>
       <ul>
         <li>
           <Link to="/friends">Friends</Link>
@@ -13,8 +13,7 @@ function MainList() {
         </li>
       </ul>
     </div>
-  );*/
-  return null;
+  );
 }
 
 export default MainList;
