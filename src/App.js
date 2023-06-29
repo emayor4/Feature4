@@ -4,7 +4,7 @@ import Main from "./components/main/Main";
 import Friends from "./components/friends/Friends";
 import Communities from "./components/communitites/Communities";
 
-function App() {
+export default function App() {
   return (
     <html>
       hello
