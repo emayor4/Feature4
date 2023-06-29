@@ -1,7 +1,7 @@
 import Parse from "parse";
 
 // CREATE operation - new Community with Name
-export const createCommunity = (name) => {
+export const createCommunity = async (name) => {
   const Community = Parse.Object.extend("Community");
   const community = new Community();
   community.set("name", name);
@@ -9,21 +9,21 @@ export const createCommunity = (name) => {
 };
 
 // READ operation - get Community by ID
-export const getCommunityById = (id) => {
+export const getCommunityById = async (id) => {
   const Community = Parse.Object.extend("Community");
   const query = new Parse.Query(Community);
   return query.get(id);
 };
 
 // READ operation - get all Communities
-export const getAllCommunities = () => {
+export const getAllCommunities = async () => {
   const Community = Parse.Object.extend("Community");
   const query = new Parse.Query(Community);
   return query.find();
 };
 
 // CREATE operation - new Friend with Name
-export const createFriend = (name) => {
+export const createFriend = async (name) => {
   const Friend = Parse.Object.extend("Friend");
   const friend = new Friend();
   friend.set("name", name);
@@ -31,18 +31,19 @@ export const createFriend = (name) => {
 };
 
 // READ operation - get Friend by ID
-export const getFriendById = (id) => {
+export const getFriendById = async (id) => {
   const Friend = Parse.Object.extend("Friend");
   const query = new Parse.Query(Friend);
   return query.get(id);
 };
 
 // READ operation - get all Friends
-export const getAllFriends = () => {
+export const getAllFriends = async () => {
   const Friend = Parse.Object.extend("Friend");
   const query = new Parse.Query(Friend);
   return query.find();
 };
+
 
 // export const getFriendById = (id) => {
 
