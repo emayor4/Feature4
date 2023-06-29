@@ -7,11 +7,9 @@ export default function Home() {
     <html>
       <div>
         <h1>Neighboride</h1>
-        <Link to="">Home</Link>
       </div>
       <div>
-        <h1>Welcome to the Home component</h1>
-        <p>This is the home component</p>
+        <h1>Welcome to the Home </h1>
       </div>
       <nav>
       <ul>
