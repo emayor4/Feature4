@@ -1,17 +1,26 @@
 import React from "react";
 
-function FriendsList({ friends }) {
-  if (!friends) {
-    return <div>Loading...</div>;
-  }
-
+const FriendsList = ({ friends }) => {
   return (
-    <ul>
-      {friends.map((friend) => (
-        <li key={friend.id}>{friend.name}</li>
-      ))}
-    </ul>
+    <div>
+      <hr />
+      This is the main list stateless child component.
+      <div>
+        <p> Lesson by ID: </p>
+        {/* Check that the lesson object exists */}
+        {friends.length > 0 && (
+          <ul>
+            {/* Using getter for lesson Object to display name */}
+            {friends.map((friend) => (
+              <li key={friend.id}>
+                {friend.get("firstName")}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>{" "}
+    </div>
   );
-}
+};
 
 export default FriendsList;

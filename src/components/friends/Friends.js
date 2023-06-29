@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getAllFriends } from "../../common/services/friendsService";
+import {getFriends} from "./../../common/services/friendsService"
 import FriendsList from "./FriendsList";
 import { useNavigate } from "react-router-dom";
 
-export default function Friends() {
+const Friends = () => {
   const [friends, setFriends] = useState([]);
 
   useEffect(() => {
-    getAllFriends()
-      .then((data) => setFriends(data))
-      .catch((error) => {
-        console.error("Error retrieving friends:", error);
-      });
+    getFriends().then((friends) => {
+      setFriends(friends);
+    });
   }, []);
 
   const history = useNavigate();
@@ -33,3 +31,5 @@ export default function Friends() {
     </html>
   );
 }
+
+export default Friends;
