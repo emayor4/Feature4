@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { getCommunities } from "../../common/services/communitiesService";
 
-function CommunitiesList({ communities }) {
+const CommunitiesList = () => {
+  const [communities,setCommunities] = useState([]);
+  useEffect(() => {
+    getCommunities().then((communities) => {
+      setCommunities(communities);
+    });
+  }, []);
+
   return (
     <div>
-      {communities.map((community, index) => (
-        <p key={index}>{community.name}</p>
-      ))}
+      {communities.length > 0 && (
+          <ul>
+            {communities.map((comm) => (
+              <li key={comm.objectID}>
+                {comm.community}
+              </li>
+            ))}
+          </ul>
+        )}
     </div>
   );
+  
 }
+
+
 
 export default CommunitiesList;
