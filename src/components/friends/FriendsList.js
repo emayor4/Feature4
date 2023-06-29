@@ -1,12 +1,16 @@
 import React from "react";
 
 function FriendsList({ friends }) {
+  if (!friends) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div>
-      {friends.map((friend, index) => (
-        <p key={index}>{friend.name}</p>
+    <ul>
+      {friends.map((friend) => (
+        <li key={friend.id}>{friend.name}</li>
       ))}
-    </div>
+    </ul>
   );
 }
 

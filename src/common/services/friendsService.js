@@ -1,19 +1,13 @@
-import { API_URL } from '../../environments';
+import Parse from "parse";
 
-// Assuming you have the implementation of the `fetchData` function within `friendsService.js`
-const fetchData = async (url) => {
-  // Implementation of fetchData function
+// READ operation - get all Friends
+export const getAllFriends = async () => {
+  const Friend = Parse.Object.extend("Friend");
+  const query = new Parse.Query(Friend);
+  return query.find();
 };
 
-export const getFriends = async () => {
-  try {
-    const url = `${API_URL}/friends`;
-    return fetchData(url);
-  } catch (error) {
-    console.error("Error fetching friends:", error);
-    throw error;
-  }
-};
+
 
 
 // Other friend-related functions
