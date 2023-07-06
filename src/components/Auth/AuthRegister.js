@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const AuthRegister = () => {
   const navigate = useNavigate();
 
+  // State to store the new user's information
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
@@ -13,10 +14,10 @@ const AuthRegister = () => {
     password: ""
   });
 
-  // flags in the state to watch for add/remove updates
+  // State to track if the registration request should be sent
   const [add, setAdd] = useState(false);
 
-  // redirect already authenticated users back to home
+  // Check if the user is already logged in
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");
@@ -24,9 +25,8 @@ const AuthRegister = () => {
     }
   }, [navigate]);
 
-  // useEffect that run when changes are made to the state variable flags
+  // Perform user registration when newUser and add state change
   useEffect(() => {
-    // checkUser() ? history.push("/home"): null;
     if (newUser && add) {
       createUser(newUser).then((userCreated) => {
         if (userCreated) {
@@ -35,12 +35,13 @@ const AuthRegister = () => {
           );
           navigate("/");
         }
-        // TODO: redirect user to main app
+
         setAdd(false);
       });
     }
   }, [navigate, newUser, add]);
 
+  // Update newUser state when input values change
   const onChangeHandler = (e) => {
     e.preventDefault();
     console.log(e.target);
@@ -53,6 +54,7 @@ const AuthRegister = () => {
     });
   };
 
+  // Handle form submission
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log("submitted: ", e.target);
@@ -61,6 +63,7 @@ const AuthRegister = () => {
 
   return (
     <div>
+      {/* Render the AuthForm component */}
       <AuthForm
         user={newUser}
         onChange={onChangeHandler}
