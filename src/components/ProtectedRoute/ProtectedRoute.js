@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { checkUser } from "../../common/services/AuthService";
 
 const ProtectedRoute = ({ element: Component, ...rest }) => {
@@ -18,9 +18,7 @@ const ProtectedRoute = ({ element: Component, ...rest }) => {
   } else {
     // Render unauthorized message and a button to go back
     return (
-      <div>
-        <p>Unauthorized!</p> <button onClick={goBackHandler}>Go Back</button>
-      </div>
+      <Navigate to="/auth" replace />
     );
   }
 };
