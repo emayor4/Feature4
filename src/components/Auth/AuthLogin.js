@@ -6,15 +6,16 @@ import { useNavigate } from "react-router-dom";
 const AuthLogin = () => {
   const navigate = useNavigate();
 
-  // redirect already authenticated users back to home
+  // State to store the current user's email and password
   const [currentUser, setCurrentUser] = useState({
     email: "",
     password: ""
   });
 
-  // flags in the state to watch for add/remove updates
+  // State to track if the login request should be sent
   const [add, setAdd] = useState(false);
 
+  // Check if the user is already logged in
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");
@@ -22,7 +23,7 @@ const AuthLogin = () => {
     }
   }, [navigate]);
 
-  // useEffect that run when changes are made to the state variable flags
+  // Perform login when currentUser and add state change
   useEffect(() => {
     if (currentUser && add) {
       loginUser(currentUser).then((userLoggedIn) => {
@@ -32,12 +33,13 @@ const AuthLogin = () => {
           );
           navigate("/");
         }
-        // TODO: redirect user to main app
+       
         setAdd(false);
       });
     }
   }, [navigate, currentUser, add]);
 
+  // Update currentUser state when input values change
   const onChangeHandler = (e) => {
     e.preventDefault();
     console.log(e.target);
@@ -50,6 +52,7 @@ const AuthLogin = () => {
     });
   };
 
+  // Handle form submission
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log("submitted: ", e.target);
@@ -58,6 +61,7 @@ const AuthLogin = () => {
 
   return (
     <div>
+      {/* Render the AuthForm component */}
       <AuthForm
         user={currentUser}
         isLogin={true}
